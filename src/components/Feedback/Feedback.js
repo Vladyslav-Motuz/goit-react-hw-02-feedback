@@ -9,12 +9,14 @@ class Feedback extends React.Component {
         neutral: 0,
         bad: 0
     };
+
     hendleIncrement = event => {
         const nameBTN = event.currentTarget.innerText.toLowerCase();    
         this.setState(preState => {
             return { [nameBTN]: preState[nameBTN] + 1 }
         })
     };
+
     countTotalFeedback = () => {
         const { good, neutral, bad } = this.state;
         return good + neutral + bad;
@@ -24,7 +26,8 @@ class Feedback extends React.Component {
         const { good, neutral, bad } = this.state;
         const total = good + neutral + bad;
         return (total ? Math.round((good / total) * 100) : 0);
-    };    
+    };
+    
     render() {
         const { good, neutral, bad } = this.state;    
         return (            
